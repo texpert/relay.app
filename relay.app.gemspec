@@ -7,12 +7,9 @@ Gem::Specification.new do |spec|
   spec.version = Relay::VERSION
   spec.authors = ["Antar Azri", "0x1eef"]
   spec.email = ["azantar@proton.me", "0x1eef@hardenedbsd.org"]
-  spec.summary = "Self-hostable LLM environment you can run in under 2 minutes"
-  spec.description = "Relay is a self-hostable LLM environment built on llm.rb " \
-    "that you can set up and get running in under 2 minutes. Extend it " \
-    "with your own tools, connect MCP servers, and run an AI workspace " \
-    "on your own infrastructure."
-  spec.homepage = "https://github.com/llmrb/relay"
+  spec.summary = "Ruby's hackable AI web environment"
+  spec.description = spec.summary
+  spec.homepage = "https://github.com/llmrb/relay.app"
   spec.license = "0BSD"
   spec.required_ruby_version = ">= 3.3"
   spec.bindir = "bin"
@@ -57,7 +54,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "erubi"
   spec.add_dependency "erb"
   spec.add_dependency "falcon"
-  spec.add_dependency "llm.rb", "= 8.1.0"
+  spec.add_dependency "llm.rb", "= 9.0.0"
   spec.add_dependency "net-http-persistent"
   spec.add_dependency "rack"
   spec.add_dependency "rackup"
