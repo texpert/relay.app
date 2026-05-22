@@ -63,7 +63,8 @@ module Relay
     def extract_youtube_id(uri)
       path = uri.path.to_s
       return path.split("/").reject(&:empty?).last if path.start_with?("/embed/", "/shorts/")
-      CGI.parse(uri.query.to_s).fetch("v", []).first
+      form = URI.decode_www_form(uri.query.to_s)
+      (form.to_h["v"] || []).first
     end
 
     def songs
