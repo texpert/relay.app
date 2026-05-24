@@ -34,8 +34,8 @@ PROVIDERS = [
   ),
   LLM::Object.from(
     fields: [
-      LLM::Object.from(label: "AWS access key ID", key: "AWS_ACCESS_KEY_ID", aliases: [], secret: false),
-      LLM::Object.from(label: "AWS secret access key", key: "AWS_SECRET_ACCESS_KEY", aliases: [], secret: true)
+      LLM::Object.from(label: "[Bedrock] AWS access key ID", key: "AWS_ACCESS_KEY_ID", aliases: [], secret: false),
+      LLM::Object.from(label: "[Bedrock] AWS secret access key", key: "AWS_SECRET_ACCESS_KEY", aliases: [], secret: true)
     ]
   )
 ].freeze
