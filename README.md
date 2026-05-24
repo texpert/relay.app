@@ -17,15 +17,15 @@ HTMX and web sockets.
 
 ## Appearance
 
-**Sign-in**
+#### Sign-in
 
 ![Relay screenshot](./relay3.png)
 
-**Chat**
+#### Chat
 
 ![Relay screenshot](./relay1.png)
 
-**MCP**
+#### MCP
 
 ![Relay screenshot](./relay2.png)
 
@@ -58,7 +58,7 @@ relay start
 
 ## Tools
 
-### How do I add my own tool?
+#### How do I add my own tool?
 
 Before running `relay start` you should add `~/.config/relay/tools/<yourtool>.rb`.
 The tool will be automatically made available to the LLM. This is how a tool
@@ -80,7 +80,7 @@ class Shell < LLM::Tool
 end
 ```
 
-### Wait, what is a tool?
+#### Wait, what is a tool?
 
 A tool contains a name, a description, and optional parameters. It is attached
 to a method, and that method that can be called. The model or LLM decides when
@@ -104,15 +104,15 @@ can be played inline in the chat, and you can also add your own
 songs or remove existing ones through the same tools. The only
 requirement is that it is a YouTube URL.
 
-### Costs
+## Costs
 
-### What provider is the best value?
+#### What provider is the best value?
 
 DeepSeek. <br>
 Hard to beat it on price. <br>
 Recent models have a context window of 1M.
 
-### What about self-hosting with Ollama ?
+#### What about self-hosting with Ollama ?
 
 [llm.rb](https://github.com/llmrb/llm.rb#readme) provides support ollama, llama.cpp,
 and any OpenAI-compatible endpoint. But Relay does not surface it as a feature. I haven't
