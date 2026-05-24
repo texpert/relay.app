@@ -21,7 +21,7 @@ module Relay
     "deepseek" => -> { ENV["DEEPSEEK_SECRET"].nil? ? nil : LLM.deepseek(key: ENV["DEEPSEEK_SECRET"]) },
     "google" => -> { ENV["GOOGLE_SECRET"].nil? ? nil : LLM.google(key: ENV["GOOGLE_SECRET"]) },
     "openai" => -> { ENV["OPENAI_SECRET"].nil? ? nil : LLM.openai(key: ENV["OPENAI_SECRET"]) },
-    "xai" => -> { ENV["XAI_SECRET"].nil? ? nul : LLM.xai(key: ENV["XAI_SECRET"]) },
+    "xai" => -> { ENV["XAI_SECRET"].nil? ? nil : LLM.xai(key: ENV["XAI_SECRET"]) },
     "bedrock" => -> do
       (ENV["AWS_ACCESS_KEY_ID"].nil? || ENV["AWS_SECRET_ACCESS_KEY"].nil?) ?
         nil :
