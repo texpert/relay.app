@@ -22,8 +22,6 @@ module Relay::Models
     def self.refresh_all
       Relay.providers.each do |_, provider|
         refresh(provider)
-      rescue LLM::Error
-        next
       end
     end
 
