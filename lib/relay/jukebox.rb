@@ -64,7 +64,7 @@ module Relay
       path = uri.path.to_s
       return path.split("/").reject(&:empty?).last if path.start_with?("/embed/", "/shorts/")
       form = URI.decode_www_form(uri.query.to_s)
-      (form.to_h["v"] || []).first
+      form.to_h["v"]
     end
 
     def songs
