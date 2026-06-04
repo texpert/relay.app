@@ -13,7 +13,7 @@ DEFAULT_TRANSPORT = "net_http_persistent"
 def option_parser(bind, transport)
   OptionParser.new do |o|
     o.banner = "Usage: relay start [OPTIONS] [URL]"
-    o.on("--transport TRANSPORT", "curl, net_http, or net_http_persistent.") { transport.replace(_1) }
+    o.on("--transport TRANSPORT", "curb, net_http, or net_http_persistent.") { transport.replace(_1) }
     o.on("--bind URL", "Bind Falcon to a URL") { bind.replace(_1) }
   end
 end
