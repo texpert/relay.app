@@ -12,6 +12,9 @@ jobs:
       SESSION_SECRET: 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
 
     steps:
+      - name: Dependencies
+        run: apt install libcurl-dev
+
       - name: Check out code
         uses: actions/checkout@v4
 
