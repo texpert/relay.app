@@ -142,6 +142,10 @@ module Relay
         end
 
         r.is Integer do |id|
+          r.get do
+            Pages::Context.new(self).call(id)
+          end
+
           r.delete do
             Routes::DeleteContext.new(self).call(id)
           end

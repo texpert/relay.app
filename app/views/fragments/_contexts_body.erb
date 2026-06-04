@@ -15,22 +15,16 @@
       <% contexts.each do |context| %>
         <% active = context.id == ctx.id %>
         <div class="flex items-center gap-2 pr-2">
-          <form class="min-w-0 flex-1" action="/settings/set-context" method="post" hx-post="/settings/set-context" hx-target="#workspace-main" hx-swap="outerHTML" hx-trigger="change from:input[type='radio']">
-            <label class="sidebar-list-item <%= "is-active" if active %> flex cursor-pointer items-center gap-3 text-sm">
-              <input
-                type="radio"
-                name="context_id"
-                value="<%= context.id %>"
-                <%= "checked" if active %>
-                class="sr-only"
-              >
-              <span class="sidebar-avatar"><%= initials(context.title || "Untitled Chat") %></span>
-              <span class="flex min-w-0 flex-1 flex-col">
-                <span class="truncate font-medium"><%= context.title || "Untitled Context" %></span>
-                <span class="sidebar-meta"><%= context.messages.size %> messages</span>
-              </span>
-            </label>
-          </form>
+          <a
+            class="sidebar-list-item <%= "is-active" if active %> flex min-w-0 flex-1 cursor-pointer items-center gap-3 text-sm"
+            href="/contexts/<%= context.id %>"
+          >
+            <span class="sidebar-avatar"><%= initials(context.title || "Untitled Chat") %></span>
+            <span class="flex min-w-0 flex-1 flex-col">
+              <span class="truncate font-medium"><%= context.title || "Untitled Context" %></span>
+              <span class="sidebar-meta"><%= context.messages.size %> messages</span>
+            </span>
+          </a>
           <button
             type="button"
             hx-delete="/contexts/<%= context.id %>"
