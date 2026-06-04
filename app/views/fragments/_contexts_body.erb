@@ -9,27 +9,39 @@
 </form>
 <div class="sidebar-contexts-list scrollbar-chat min-h-0 flex-1 overflow-y-auto pr-1">
   <% if contexts.empty? %>
-    <div class="field theme-muted text-sm">No saved chats for this AI yet.</div>
+    <div class="field theme-muted text-sm">No saved chats yet.</div>
   <% else %>
-    <form class="flex flex-col gap-2" action="/settings/set-context" method="post" hx-post="/settings/set-context" hx-target="#workspace-main" hx-swap="outerHTML" hx-trigger="change from:input[type='radio']">
+    <div class="flex flex-col gap-2">
       <% contexts.each do |context| %>
         <% active = context.id == ctx.id %>
-        <label class="sidebar-list-item <%= "is-active" if active %> flex cursor-pointer items-center gap-3 text-sm">
-          <input
-            type="radio"
-            name="context_id"
-            value="<%= context.id %>"
-            <%= "checked" if active %>
-            class="sr-only"
-          >
-          <span class="sidebar-avatar"><%= initials(context.title || "Untitled Chat") %></span>
-          <span class="flex min-w-0 flex-1 flex-col">
-            <span class="truncate font-medium"><%= context.title || "Untitled Context" %></span>
-            <span class="sidebar-meta"><%= context.messages.size %> messages</span>
-          </span>
-          <span class="sidebar-presence" aria-hidden="true"></span>
-        </label>
+        <div class="flex items-center gap-2 pr-2">
+          <form class="min-w-0 flex-1" action="/settings/set-context" method="post" hx-post="/settings/set-context" hx-target="#workspace-main" hx-swap="outerHTML" hx-trigger="change from:input[type='radio']">
+            <label class="sidebar-list-item <%= "is-active" if active %> flex cursor-pointer items-center gap-3 text-sm">
+              <input
+                type="radio"
+                name="context_id"
+                value="<%= context.id %>"
+                <%= "checked" if active %>
+                class="sr-only"
+              >
+              <span class="sidebar-avatar"><%= initials(context.title || "Untitled Chat") %></span>
+              <span class="flex min-w-0 flex-1 flex-col">
+                <span class="truncate font-medium"><%= context.title || "Untitled Context" %></span>
+                <span class="sidebar-meta"><%= context.messages.size %> messages</span>
+              </span>
+            </label>
+          </form>
+          <button
+            type="button"
+            hx-delete="/contexts/<%= context.id %>"
+            hx-trigger="click"
+            hx-target="#contexts-control"
+            hx-swap="outerHTML"
+            aria-label="Delete <%= context.title || "Untitled Context" %>"
+            class="sidebar-delete-context"
+          >×</button>
+        </div>
       <% end %>
-    </form>
+    </div>
   <% end %>
 </div>

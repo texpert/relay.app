@@ -21,6 +21,8 @@ module Relay
       layout: "layout",
       views: File.expand_path("../views", __dir__)
 
+    plugin :all_verbs
+
     ##
     # Routes
     route do |r|
@@ -134,9 +136,15 @@ module Relay
         end
       end
 
-      r.is "contexts" do
-        r.get do
+      r.on "contexts" do
+        r.get true do
           Routes::ListContexts.new(self).call
+        end
+
+        r.is Integer do |id|
+          r.delete do
+            Routes::DeleteContext.new(self).call(id)
+          end
         end
       end
 
