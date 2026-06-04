@@ -8,6 +8,8 @@ export const ContentController = ({target}) => {
   }
 
   const modifyAnchors = (el) => {
+    if (el.origin === window.location.origin)
+      return
     el.setAttribute("target", "_blank")
     el.setAttribute("rel", "noreferrer noopener")
   }
