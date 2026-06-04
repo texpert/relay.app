@@ -70,7 +70,8 @@ module Relay::Tools
 
     def robert_resources
       {
-        "readme" => "https://raw.githubusercontent.com/llmrb/robert/refs/heads/main/README.md"
+        "readme" => "https://raw.githubusercontent.com/llmrb/robert/refs/heads/main/README.md",
+        "changelog" => "https://raw.githubusercontent.com/llmrb/robert/refs/heads/main/CHANGELOG.md"
       }
     end
 
