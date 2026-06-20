@@ -1,9 +1,16 @@
-## About
+<p align="center">
+  <a href="https://r.uby.dev">
+    <img src="rubydev.svg" width="400" height="200" border="0" alt="a r.uby.dev project">
+  </a>
+</p>
 
-Relay is a self-hostable, hackable LLM web environment that can be extended
-with your own tools and skills that live in your `${HOME}` directory.
-It is for programmers, AI engineers, hackers, and anyone who wants
-their own AI environment with the option to extend it with code.
+> A [r.uby.dev](https://r.uby.dev) project.
+
+Relay is a self-hostable, hackable LLM web environment and a
+[r.uby.dev](https://r.uby.dev) project. It can be extended with your
+own tools and skills that live in your `${HOME}` directory, and it is
+for programmers, AI engineers, hackers, and anyone who wants their own
+AI environment with the option to extend it with code.
 
 
 ## Setup
